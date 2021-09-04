@@ -1,0 +1,12 @@
+Exemplo eu quero fazer alguma coisa na tela que seria por exemplo assim que meu compoenete montar
+eu quero que alguma coisa ocorra
+
+componentDidMount(){  <---- imagine que quando ele for montado na tela, eu quero que aconteça alguma coisa
+      this.handleTimeout()
+  }
+
+Esse componentDidMount vai ser executado uma vez assim que o compoente for montado na tela
+ quando precisamos buscar os dados de alguma API eu vou fazer essa busca aqui no 
+componentDidMount, ou seja assim que o componente montar, eu faço uma requisição
+API externa e ai eu seto meu estado.
+

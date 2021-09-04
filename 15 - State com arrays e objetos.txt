@@ -1,0 +1,149 @@
+Array em react
+
+Imagine que no meu state eu tenho alguma coisa como posts e dentro de post tenho um Array
+e vou abrir um objeto com três campos:
+exemplo:
+-------------------------------------------------------------------------------
+state = {
+      posts : [
+        {
+          id: 1,          
+          title: 'O título 1',
+          body: 'O corpo 1'
+        },
+        {
+          id: 2,          
+          title: 'O título 2',
+          body: 'O corpo 2'
+        },
+        {
+          id: 3,          
+          title: 'O título 3',
+          body: 'O corpo 3'
+        },
+      ]
+    }; 
+------------------------------------------------------------------------------
+
+Então temos um objeto com uma chave que tem um array, que tem objetos dentro das chaves
+e agora eu quero interar sobre esse objeto 
+Como eu faço?
+Eu preciso primeiro pegar posts dentro dos meus state, no 
+--------------------------------------------------------------
+render() {
+    const { posts } = this.state <-- coloco o post dento da const
+
+    return (
+      <div className="App">           
+      </div>
+    );    
+  }
+-------------------------------------------------------------------------
+
+e agora como eu quero aqueles posts que é um array de posts eu posso utilizar
+um negocio que tem dentro do array.prototype.map() que é o map que existe dentro do array do javascript
+todo array em javascript puro mesmo ja tem um map para nos disponivel esse MAP() vai retornar um novo array
+contendo as coisa que nos pedimos.
+então por isso usamos isso.
+
+Então vamos usar post$.map(), e esse map existe uma função que eu vou pegar como primeiro parametro
+o elemento que estou interando sobre ele, então eu quero por exemplo cada post dentor do objeto
+e nisso coloc uma varial chamando ele de post e aqui eu quero renderizar jsx, então eu posso fazer 
+a versão curta da arrow function passar aqui dentro uma tag html e nessas tag eu quero passar o objeto title
+post.title.
+*Sempre que voce iterar sobre elementos aqui dentro JSX voce vai eventualmente retornar vaios elementos
+e o react precisa d euma frma rapido de identificar esses elementos, por que para ele otimizar a performace
+ele precisa saber qual elemnto foi atualizado para ele ir diretamente nesse elemento e atualizar somente ele
+quando eu fazer a renderização da minha pagina.
+Como faço isso?
+Voce precisa passar uma chave unica, uma propriedade Key dentro do elemento que voce esta retornando.
+No nosso caso vamos usar post.id
+toda vez que voce ver mao lembra de colocar Key
+----------------------------------------------------------------
+return (
+      <div className="App">
+        {posts.map(post => <h1 key={post.id}>{post.title}</h1>)} <---- key
+      </div>
+    );
+
+-------------------------------------------------------------------------
+
+Codigo completo:
+-----------------------------------------------------------------------
+
+
+import './App.css';
+import { Component } from 'react';
+
+class App extends Component {
+  state = {
+    posts: [
+      {
+        id: 1,
+        title: 'O titulo 1',
+        body: 'O corpo 1'
+      },
+      {
+        id: 2,
+        title: 'O titulo 2',
+        body: 'O corpo 2'
+      },
+      {
+        id: 3,
+        title: 'O titulo 3',
+        body: 'O corpo 3'
+      },
+    ]
+  };
+ 
+
+  render() {
+    const { posts } = this.state
+
+    return (
+      <div className="App">
+        {posts.map(post => <h1 key={post.id}>{post.title}</h1>)}
+      </div>
+    );
+  }
+}
+
+
+
+
+export default App;
+
+
+---------------------------------------------------------------------------
+
+Mas e se eu quiser retornar varios,
+Faço o seguinte eu recorto a tag html,e qaui logo no retorno da função eu vou colocar
+parenteses, depois da arraow function, isso indica que eu estou retornando alguma coisa
+de dentro dessa função, e dessa forma posso retorna mais de uma linha
+
+    return (
+      <div className="App">
+        {posts.map(post => (
+          <h1 key={post.id}>{post.title}</h1> <-------mais um () acrescentado
+        ))}
+      </div>
+    );
+
+Só que eu não posso fazer isso em jsx, lembra que nessa render eu só posso retornar um elemnto root
+então toda vez que eu vou retornar um elemento pro jsx eu tenho que ter um elemento root, eu poss utilizar fragmentos
+então eu crio um div e coloco o key dentro dessa nova div
+
+ return (
+      <div className="App">
+        {posts.map(post => (
+         <div key={post.id}> <----- div criada com a key
+         <h1>{post.title}</h1>
+         <p>{post.body}</p>
+         </div> <--------------------- encerramento da div
+
+        ))}
+      </div>
+    );
+
+
+

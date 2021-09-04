@@ -1,0 +1,87 @@
+O que eu quero fazer é o seguinte
+eu vou pegar essa URL e vou resolver com Promise.all
+const [posts] = Promise.all([]) e vou passar um array de promesas aqui e a primeira dela
+é postsResponse e agora vou converter para json
+
+const postsJson = await posts.json()
+
+e ai daqui mesmo posso setar meu estado para meu posts: postsJson
+
+this.setState({ posts: postaJson })
+
+e quando nos pegar as fotos vamos chamar this .loadPosts()
+
+Estamos usando uma api ja feito chamada JsonPlaceHolder
+
+Criamo classes no html das divs
+
+<section className="container"> <------ classes criadas
+        <div className="posts">  <------- classes criadas      
+          {posts.map(post => (
+            <div className="post">
+              <div key={post.id} className="post-content"> <---- classes criadas
+              <h1>{post.title}</h1>
+              <p>{post.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+     </section>      
+
+Arquivos que foram criados o css
+--------------------------------------------------------------------------------------
+App.css:
+
+.container{
+  min-height: 100vh; <--- altura minua do navegador
+  background: #eee;
+}
+
+.posts{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); <---colunas
+  gap: 30px; <--- espaços da colunas
+}
+
+.post{
+  background: #fff; <--- fundo do post
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); <---- sombra das bordas 
+  transition: transform 100ms ease-in-out; <----- efeito do mouse por cima
+}
+
+.post-content{
+  padding: 30px;
+}
+
+.post:hover {
+  transform: scale(1.05) <--assim voce pode subiro mouse
+}
+
+.post img{
+  max-width: 100%;
+}
+----------------------------------------------------------------------------------------
+index.css:
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+--------------------------------------------------------------------------------
+
+Agora voltamos Para loadPosts
+pq agora quero um const photosResponse = fetch('')
+
+eu vou unir pelo menor array
+vou criar um a variavel chamada postsAndPhotos =  e nele vai receber post, index para mapear
+VOu precisar dos post e do index para pegar um foto do array de photos
+
+return
+ovou pegar todos os post, so que quero adicionar um adicional tambe chamada cover,e como faço isso
+eu pego photosJson que receb um array nesse array eu vou pegar o index baseado no index do post
+então eu to pegando para cada post eu pego um index aqui, então queor pego o .url
+
+então quero pegar cada este postsAndPhotos no lugar do meu postsJson, troco postJson por postAndPhotos
+
+
