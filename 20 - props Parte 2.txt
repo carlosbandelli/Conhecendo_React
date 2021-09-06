@@ -1,0 +1,3 @@
+O porque da função começar com letra minuscula
+loadPosts
+Essa função não é uma função construtora, componente e nenhuma classe 
