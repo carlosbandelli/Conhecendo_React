@@ -1,0 +1,2 @@
+Api faker
+jsonplaceholder: https://jsonplaceholder.typicode.com/

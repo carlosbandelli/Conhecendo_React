@@ -1,0 +1,24 @@
+O que eu quero fazer, eu quero vir aqui e pegar allposts, eu quero pegar todos ospost
+eu vou jogar uns trecho dos post somente aqui no allpost.
+
+loadMorePosts = eu preciso de algum jeito para engatilhar essa função aqui
+Vamos criar um compoenete chamado button com evente estaticos
+onClick = this.loadMorePosts
+ voce passa esse atributo para o componente criado dentro do seu botão
+ago sim vou usar o evento do botão que é o onClick.
+Fazendo a logica
+eu vou precisar pegar da page atual,
+postPerpage,
+allPosts,
+posts
+Pq eu preciso pegar minha proxima pagina qual vai ser minha proxima pagina vai ser nextPage
+pagina que eu estou mais page + postsPerPage.
+
+POr conta do seguinte a pagina que estou é 0 quantos post esse slice vão pegar serão 2
+no código
+eu vou criar um const que vai pegar de allPosts.slice()<- eu vou querer a minha next page no caso mais os proximos post nessa pagina
+como vamos setar no mei estado
+preciso do post vou enviar os post no metodo push(), eu enviar esse next post aqui para dentro desse posts, mais eu preciso fazer o spread
+eel vai esplahr esse post aqui dentro eu quero que ele espalahe os posts dentro do arary sem criar um novo
+e eu vou configurar quem os post que ja esta ali eminha proxima pagian que vai ser page iguala next page
+
