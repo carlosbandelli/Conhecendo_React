@@ -65,17 +65,14 @@ export class Home extends Component {
      : posts;
 
     return (
-     <section className="container">     
+     <section className="container">    
+      <div className='search-container'>
 
-      
-      
+        {!!searchValue && (          
+          <h1>Search value: {searchValue}</h1>        
+        )} 
 
-       <div> {!!searchValue && (
-          
-          <h1>Search value: {searchValue} 
-        
-        )}    
-        <TextInput searchValue={searchValue} handleChange={this.handleChange} />
+        <TextInput searchValue={searchValue} handleChange={this.handleChange} /><br /><br />
         </div>
         
 
